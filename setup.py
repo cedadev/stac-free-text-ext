@@ -8,14 +8,15 @@ __copyright__ = 'Copyright 2018 United Kingdom Research and Innovation'
 __license__ = 'BSD - see LICENSE file in top-level package directory'
 __contact__ = 'richard.d.smith@stfc.ac.uk'
 
-from setuptools import setup, find_namespace_packages
+from setuptools import find_namespace_packages, setup
 
 with open("README.md") as readme_file:
     _long_description = readme_file.read()
 
 setup(
     name='stac_fastapi_freetext',
-    description='Free-text extension for STAC. Developed for use with the stac-fastapi framework',
+    description='Free-text extension for STAC. '
+                'Developed for use with the stac-fastapi framework',
     author='Richard Smith',
     url='https://github.com/cedadev/stac-free-text-ext',
     long_description=_long_description,
@@ -28,4 +29,9 @@ setup(
         'fastapi',
         'stac-fastapi.types',
     ],
+    extras_require={
+        'dev': [
+            'pre-commit'
+        ]
+    }
 )
