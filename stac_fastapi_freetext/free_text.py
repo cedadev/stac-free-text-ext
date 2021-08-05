@@ -19,6 +19,7 @@ CONFORMANCE_CLASSES = [
 ]
 
 
+@attr.s
 class FreeTextExtension(ApiExtension):
     """Free-text search extension
 
