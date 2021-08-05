@@ -7,9 +7,16 @@ __copyright__ = 'Copyright 2018 United Kingdom Research and Innovation'
 __license__ = 'BSD - see LICENSE file in top-level package directory'
 __contact__ = 'richard.d.smith@stfc.ac.uk'
 
+from typing import List
+
 import attr
-from stac_fastapi.types.extension import ApiExtension
 from fastapi import FastAPI
+
+from stac_fastapi.types.extension import ApiExtension
+
+CONFORMANCE_CLASSES = [
+    'https://api.stacspec.org/v1.0.0-beta.2/item-search#free-text-search'
+]
 
 
 class FreeTextExtension(ApiExtension):
@@ -22,11 +29,12 @@ class FreeTextExtension(ApiExtension):
     https://github.com/cedadev/stac-freetext-search
 
     Attributes:
-        conformance_classes (list): Defines the list of conformance classes for the extension.
+        conformance_classes (list): Defines the list of conformance classes
+                                    for the extension.
     """
 
     conformance_classes: List[str] = attr.ib(
-        default=["https://api.stacspec.org/v1.0.0-beta.2/item-search#free-text-search"]
+        default=CONFORMANCE_CLASSES
     )
 
     def register(self, app: FastAPI) -> None:
