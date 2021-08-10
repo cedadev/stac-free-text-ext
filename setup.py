@@ -27,6 +27,7 @@ setup(
     install_requires=[
         'attr',
         'fastapi',
+        'pydantic',
         'stac-fastapi.types',
     ],
     extras_require={
